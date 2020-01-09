@@ -1,5 +1,6 @@
 # RC_NetworkProxy
 RC_NetworkProxy is a simple network proxy protocol for sending 'POST / 'GET' and so on
+\
 RC_NetworkProxy是一个用来发送**‘POST’**、**‘GET’**等的简单网络‘代理’协议
 
 ## 1. What does it mean
@@ -114,7 +115,7 @@ by registering the global hook you can do something before sending a request
 ...
 @end
 ```
-**note: the preprocessing of the request will be ignored when property ‘whiteList’ is ‘YES’**
+**Note: the preprocessing of the request will be ignored when property ‘whiteList’ is ‘YES’**
 
 # License
-RC_NetworkProxy is available under the MIT license. See the LICENSE file for more info.
+RC_NetworkProxy is available under the MIT license. See the [LICENSE](https://github.com/Hymn-RoyCHANG/RC_NetworkProxy/blob/master/LICENSE) file for more info.
