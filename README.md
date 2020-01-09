@@ -1,7 +1,7 @@
 # RC_NetworkProxy
-RC_NetworkProxy is a simple network proxy protocol for sending 'POST / 'GET' and so on
+RC_NetworkProxy is a simple network proxy protocol for sending **POST** / **GET** and so on
 \
-RC_NetworkProxy是一个用来发送**‘POST’、‘GET’**等的简单网络‘代理’协议
+RC_NetworkProxy是一个用来发送**POST**、**GET**等的简单网络‘代理’协议
 
 ## 1. What does it mean
 
