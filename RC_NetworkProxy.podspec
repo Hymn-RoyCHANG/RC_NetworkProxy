@@ -19,18 +19,16 @@ Pod::Spec.new do |spec|
   spec.frameworks  = 'Foundation'
 
   spec.subspec 'RC_NetworkProtocol_Help' do |shelp|
-    shelp.frameworks  = 'Foundation'
+    
     shelp.source_files = 'RC_NetworkProxy/RC_NetworkProtocol_Help/*.{h,m}'
   end
   
   spec.subspec 'RC_NetworkProtocol_Imp' do |simp|
-    simp.frameworks  = 'Foundation'
+    
     simp.ios.dependency 'AFNetworking', '~> 3.2.1'
     simp.ios.dependency 'RC_NetworkProxy/RC_NetworkProtocol_Help'
 
     simp.source_files = 'RC_NetworkProxy/RC_NetworkProtocol_Imp/*.{h,m}'
   end
-
-  spec.ios.dependency 'RC_NetworkProxy/RC_NetworkProtocol_Imp'
 
 end

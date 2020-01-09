@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RC_NetworkProtocol_Help.h"
+#import "RC_NetworkProtocol_Imp.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
