@@ -10,14 +10,14 @@ Pod::Spec.new do |spec|
   spec.summary = 'RC_NetworkProxy is a simple network proxy protocol for sending POST and GET etc.'
 
   spec.source_files  = 'RC_NetworkProxy/RC_NetworkProxy.{h,m}'
-  spec.public_header_files = 'RC_NetworkProxy/RC_NetworkProxy.h'
+  #spec.public_header_files = 'RC_NetworkProxy/RC_NetworkProxy.h'
 
   spec.requires_arc = true
   spec.framework  = 'Foundation'
 
   spec.subspec 'RC_NetworkProtocol_Help' do |shelp|
     shelp.source_files = 'RC_NetworkProxy/RC_NetworkProtocol_Help/*.{h,m}'
-    shelp.public_header_files = 'RC_NetworkProxy/RC_NetworkProtocol_Help/*.h'
+    #shelp.public_header_files = 'RC_NetworkProxy/RC_NetworkProtocol_Help/*.h'
   end
   
   spec.subspec 'RC_NetworkProtocol_Imp' do |simp|
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
     simp.dependency 'RC_NetworkProxy/RC_NetworkProtocol_Help'
 
     simp.source_files = 'RC_NetworkProxy/RC_NetworkProtocol_Imp/*.{h,m}'
-    simp.public_header_files = 'RC_NetworkProxy/RC_NetworkProtocol_Imp/*.h'
+    #simp.public_header_files = 'RC_NetworkProxy/RC_NetworkProtocol_Imp/*.h'
   end
 
 end
