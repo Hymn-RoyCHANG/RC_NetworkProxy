@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'RC_NetworkProxy'
-  spec.version = '0.1.2'
+  spec.version = '0.1.3'
   spec.ios.deployment_target = '8.0'
 
   spec.homepage = 'https://github.com/Hymn-RoyCHANG/RC_NetworkProxy'
@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.author = { 'Roy CHANG' => 'roychang_tech@163.com' }
   spec.source = { 
                   :git => 'https://github.com/Hymn-RoyCHANG/RC_NetworkProxy.git', 
-                  :tag => '0.1.2'
+                  :tag => spec.version
                 }
   spec.summary = 'RC_NetworkProxy is a simple network proxy protocol for sending POST and GET etc.'
 
