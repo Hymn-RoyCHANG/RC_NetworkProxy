@@ -30,6 +30,7 @@ download the source code files and add them to your project
 ```
 #### 2.3 Usage
 ```objc
+/// url
 NSString *host = @"http:/xxx.yyy.zzz.com";
 NSString *api = @"/add/bookmark/";
 /// full string is: http:/xxx.yyy.zzz.com//add/bookmark/
@@ -37,11 +38,16 @@ NSString *url = RC_HTTPURL(host, api);
 /// or
 /// NSString *url = @"http:/xxx.yyy.zzz.com/aaa/bbb/cccc";
 
+/// http headers
 NSDictionary<NSString*, NSString*> *headers = @{"xxx" : @"yyy"};
+
+/// request body / parameters
 NSDictionary *params = @{@"param1" : @"value1", @"param2" : @"value2"};
+
 /// here is http post method
 RC_HTTPRequest *request = [RC_HTTPRequest rc_POSTRequestWithURL:url parameters:params headers:headers];
 
+/// sending request
 [RC_NetworkProxy rc_sendRequest:request completionHandler:^(RC_HTTPResponse * _Nonnull response) {
     
     /// default block is in multi-thread
