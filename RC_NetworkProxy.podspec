@@ -12,11 +12,11 @@ Pod::Spec.new do |spec|
                 }
   spec.summary = 'RC_NetworkProxy is a simple network proxy protocol for sending POST and GET etc.'
 
-  spec.source_files  = 'RC_NetworkProxy/RC_NetworkProxy.{h,m}'
+  spec.source_files  = 'RC_NetworkProxy/RC_NetworkProxy.{h,m}', 'RC_NetworkProxy/RC_NetworkProtocol_Imp/*.{h,m}'
 
   spec.requires_arc = true
   spec.frameworks  = 'Foundation'
-  
+
   spec.subspec 'RC_NetworkProtocol_Help' do |shelp|
     shelp.frameworks  = 'Foundation'
     shelp.source_files = 'RC_NetworkProxy/RC_NetworkProtocol_Help/*.{h,m}'
