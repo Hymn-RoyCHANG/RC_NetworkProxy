@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'RC_NetworkProxy'
-  spec.version = '0.1.3'
+  spec.version = '0.1.4'
   spec.ios.deployment_target = '8.0'
 
   spec.homepage = 'https://github.com/Hymn-RoyCHANG/RC_NetworkProxy'
@@ -12,7 +12,8 @@ Pod::Spec.new do |spec|
                 }
   spec.summary = 'RC_NetworkProxy is a simple network proxy protocol for sending POST and GET etc.'
 
-  spec.source_files  = 'RC_NetworkProxy/RC_NetworkProxy.{h,m}', 'RC_NetworkProxy/RC_NetworkProtocol_Imp/*.{h,m}'
+  #, 'RC_NetworkProxy/RC_NetworkProtocol_Imp/*.{h,m}'
+  spec.source_files  = 'RC_NetworkProxy/*.{h,m}'
 
   spec.requires_arc = true
   spec.frameworks  = 'Foundation'
@@ -29,5 +30,7 @@ Pod::Spec.new do |spec|
 
     simp.source_files = 'RC_NetworkProxy/RC_NetworkProtocol_Imp/*.{h,m}'
   end
+
+  spec.ios.dependency 'RC_NetworkProxy/RC_NetworkProtocol_Imp'
 
 end
