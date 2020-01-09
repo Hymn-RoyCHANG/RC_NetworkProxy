@@ -7,14 +7,25 @@ RC_NetworkProxy是一个用来发送**POST**、**GET**等的简单网络‘代�
 
 you can use but not only **‘AFNetworking’** to implement the protocol. currently, it implements the protocol using version **3.1.2** of **'AFNetworking'**.
 
-### how to custom the network proxy protoco 
+#### 1.1 How to custom the network proxy protocol
 ```ruby
-@interface SomeProtocol_Imp : SomeSuperObj  <RC_NetworkProtocol>
+
+@protocol RC_NetworkProtocol <NSObject>
+
+@required
+...
+@optional
+...
+@end
+
+// --------
+
+@interface SomeProtocol_Imp : SomeSuperObj <RC_NetworkProtocol>
 //... your code here...
 @end
 ```
 
-##2. how to use
+## 2. how to use
 2 ways to use:
 #### 2.1 Podfile
 ```ruby
