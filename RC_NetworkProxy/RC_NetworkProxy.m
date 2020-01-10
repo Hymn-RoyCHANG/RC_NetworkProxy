@@ -6,7 +6,6 @@
 //
 
 #import "RC_NetworkProxy.h"
-#import "RC_NetworkProtocol_Imp.h"
 
 RC_ResponseDataHandler g_rc_response_data_handler__ = nil;
 RC_RequestHookHandler g_rc_request_hook_handler__ = nil;
@@ -64,6 +63,18 @@ RC_RequestHookHandler g_rc_request_hook_handler__ = nil;
     }];
 }
 
+#pragma mark - ======== get network proxy protocol ========
+
++ (id<RC_NetworkProtocol>)rc_sharedNetworkProxyProtocol{
+    
+    return [AFHTTPSessionManager rc_sharedProtocol];
+}
+
++ (id<RC_NetworkProtocol>)rc_networkProxyProtocol{
+    
+    return [AFHTTPSessionManager rc_protocol];
+}
+
 #pragma mark - ======== public method ========
 
 + (void)rc_registerRequestHookHandler:(RC_RequestHookHandler)handler{
@@ -94,7 +105,7 @@ RC_RequestHookHandler g_rc_request_hook_handler__ = nil;
 
 + (id<RC_NetworkProtocol>)rc_sendRequest:(RC_HTTPRequest *)request completionHandler:(RC_NetworkProxyHandler)handler{
     
-    id<RC_NetworkProtocol> net = [AFHTTPSessionManager rc_sharedProtocol];
+    id<RC_NetworkProtocol> net = [self rc_sharedNetworkProxyProtocol];
     if(!request.isWhiteList && g_rc_request_hook_handler__){
         
         g_rc_request_hook_handler__(request, ^(RC_HTTPRequest *req){
@@ -112,7 +123,7 @@ RC_RequestHookHandler g_rc_request_hook_handler__ = nil;
 
 + (id<RC_NetworkProtocol>)rc_sendOnceRequest:(RC_HTTPRequest *)request completionHandler:(RC_NetworkProxyHandler)handler{
     
-    id<RC_NetworkProtocol> net = [AFHTTPSessionManager rc_protocol];
+    id<RC_NetworkProtocol> net = [self rc_networkProxyProtocol];
     if(!request.isWhiteList && g_rc_request_hook_handler__){
         
         g_rc_request_hook_handler__(request, ^(RC_HTTPRequest *req){
