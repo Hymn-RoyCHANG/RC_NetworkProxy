@@ -1,15 +1,15 @@
 # RC_NetworkProxy
-RC_NetworkProxy is a simple network proxy protocol for sending **POST** / **GET** and so on
+**RC_NetworkProxy** is a simple network proxy protocol for sending **POST** / **GET** and so on
 \
-RC_NetworkProxy是一个用来发送**POST**、**GET**等的简单网络‘代理’协议
+**RC_NetworkProxy**是一个用来发送**POST**、**GET**等的简单网络‘代理’协议
 
 ## 1. What does it mean
 
-you can use but not only **‘AFNetworking’** to implement the protocol. currently, it implements the protocol using version **3.1.2** of **'AFNetworking'**.
+You can use but not only **‘AFNetworking’** to implement the protocol. Currently, it implements the protocol using version **3.1.2** of **'AFNetworking'**.
 
 #### 1.1 How to custom the network proxy protocol
 ```objc
-
+/// the network proxy protocol
 @protocol RC_NetworkProtocol <NSObject>
 
 @required
@@ -18,15 +18,50 @@ you can use but not only **‘AFNetworking’** to implement the protocol. curre
 ...
 @end
 
-// --------
+/// -------- custom your protocol --------
 
 @interface SomeProtocol_Imp : SomeSuperObj <RC_NetworkProtocol>
 //... your code here...
 @end
+
+/// implementation
+@implementation SomeProtocol_Imp
+
+/// -------- required --------
+
++ (id<RC_NetworkProtocol>)rc_sharedProtocol{
+
+    /// your code here
+    return your_shared_protocol;
+}
+
++ (id<RC_NetworkProtocol>)rc_protocol{
+    
+    /// your code here
+}
+
+- (void)rc_addHTTPHeaders:(NSDictionary<NSString*, NSString*> *)headers{
+    
+    /// your code here
+    return your_protocol;
+}
+
+- (void)rc_sendRequest:(RC_HTTPRequest *)request completionHandler:(RC_NetworkProtocolHandler)handler{
+
+    /// your code here
+}
+
+/// -------- optional --------
+
+- (void)rc_setTimeout:(NSTimeInterval)timeout{
+    /// your code here
+}
+
+@end
 ```
 
-## 2. how to use
-2 ways to use:
+## 2. How to use
+Two ways to use:
 #### 2.1 Podfile
 ```ruby
 ...
@@ -68,7 +103,7 @@ RC_HTTPRequest *request = [RC_HTTPRequest rc_POSTRequestWithURL:url parameters:p
 ```
 ## 3. Parsing the response data
 #### 3.1 Global response data parser
-register the global data parser before you use it
+Register the global data parser before you use it. After that the data parser works for every http request, unless you specify the data parsing delegate for a certain http request (***view section 3.2***).
 ```objc
 //// sample code
 [RC_NetworkProxy rc_registerResponseDataHandler:^RC_HTTPResponse * _Nonnull(id  _Nonnull data) {
@@ -89,7 +124,7 @@ register the global data parser before you use it
 }];
 ```
 #### 3.2 The specified data parser
-you can use the **'RC_HTTPResponseDataParser'** to parse the response data for a request. It has higher priority than the global response data parser
+you can use the **'RC_HTTPResponseDataParser'** to parse the response data for a certain request. It has higher priority than the global response data parser
 
 ```objc
 @protocol RC_HTTPResponseDataParser <NSObject>
@@ -119,7 +154,7 @@ by registering the global hook you can do something before sending a request
     /// e.g. we change the original 'request' instance
     RC_HTTPRequest *new_request = [xxx_obj makeSomeChange:request];
     if(completion){
-
+        
         completion(new_request);
     }
 }];
