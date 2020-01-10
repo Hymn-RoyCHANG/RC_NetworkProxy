@@ -7,7 +7,7 @@
 
 You can use but not only **‘AFNetworking’** to implement the protocol. Currently, it implements the protocol using version **3.1.2** of **'AFNetworking'**.
 
-#### 1.1 How to custom the network proxy protocol
+### 1.1 How to custom the network proxy protocol
 ```objc
 /// the network proxy protocol
 @protocol RC_NetworkProtocol <NSObject>
@@ -62,19 +62,19 @@ You can use but not only **‘AFNetworking’** to implement the protocol. Curre
 
 ## 2. How to use
 Two ways to use:
-#### 2.1 Podfile
+### 2.1 Podfile
 ```ruby
 ...
-pod 'RC_NetworkPorxy', '~> 0.1.4'
+pod 'RC_NetworkPorxy', '~> 0.1.5'
 ....
 pod install
 ```
-#### 2.2 Add files to your project
+### 2.2 Add files to your project
 download the source code files and add them to your project
 ```objc
 #import "RC_NetworkPorxy.h"
 ```
-#### 2.3 Usage
+### 2.3 Usage
 ```objc
 /// url
 NSString *host = @"http:/xxx.yyy.zzz.com";
@@ -102,7 +102,7 @@ RC_HTTPRequest *request = [RC_HTTPRequest rc_POSTRequestWithURL:url parameters:p
 }];
 ```
 ## 3. Parsing the response data
-#### 3.1 Global response data parser
+### 3.1 Global response data parser
 Register the global data parser before you use it. After that the data parser works for every http request, unless you specify the data parsing delegate for a certain http request (***view section 3.2***).
 ```objc
 //// sample code
@@ -123,7 +123,7 @@ Register the global data parser before you use it. After that the data parser wo
     return resp;
 }];
 ```
-#### 3.2 The specified data parser
+### 3.2 The specified data parser
 you can use the **'RC_HTTPResponseDataParser'** to parse the response data for a certain request. It has higher priority than the global response data parser
 
 ```objc
@@ -146,7 +146,7 @@ you can use the **'RC_HTTPResponseDataParser'** to parse the response data for a
 ## 4. Global Hook
 by registering the global hook you can do something before sending a request
 
-#### 4.1 Register the global hook
+### 4.1 Register the global hook
 ```objc
 /// sample code
 [RC_NetworkProxy rc_registerRequestHookHandler:^(RC_HTTPRequest * _Nonnull request, RC_RequestHookCompletionHandler  _Nonnull completion) {
@@ -159,7 +159,7 @@ by registering the global hook you can do something before sending a request
     }
 }];
 ```
-#### 4.2 Hook White list
+### 4.2 Hook White list
 ```objc
 @interface RC_HTTPRequest : NSObject
 ...
@@ -170,4 +170,4 @@ by registering the global hook you can do something before sending a request
 **Note: the preprocessing of the request will be ignored when property ‘whiteList’ is ‘YES’**
 
 # License
-RC_NetworkProxy is available under the MIT license. See the [LICENSE](https://github.com/Hymn-RoyCHANG/RC_NetworkProxy/blob/master/LICENSE) file for more info.
+**RC_NetworkProxy** is available under the MIT license. See the [LICENSE](https://github.com/Hymn-RoyCHANG/RC_NetworkProxy/blob/master/LICENSE) file for more info.
