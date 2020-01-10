@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'RC_NetworkProxy'
-  spec.version = '0.1.4'
+  spec.version = '0.1.5'
   spec.ios.deployment_target = '8.0'
 
   spec.homepage = 'https://github.com/Hymn-RoyCHANG/RC_NetworkProxy'
