@@ -32,18 +32,18 @@ You can use but not only **‘AFNetworking’** to implement the protocol. Curre
 + (id<RC_NetworkProtocol>)rc_sharedProtocol{
 
     /// your code here
-    return your_shared_protocol;
+    return your_shared_protocol_instance;
 }
 
 + (id<RC_NetworkProtocol>)rc_protocol{
     
     /// your code here
+    return your_protocol_instance;
 }
 
 - (void)rc_addHTTPHeaders:(NSDictionary<NSString*, NSString*> *)headers{
     
     /// your code here
-    return your_protocol;
 }
 
 - (void)rc_sendRequest:(RC_HTTPRequest *)request completionHandler:(RC_NetworkProtocolHandler)handler{
