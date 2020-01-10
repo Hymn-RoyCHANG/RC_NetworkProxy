@@ -73,9 +73,9 @@ static NSString *const RC_AF_NetWork_SharedObj_Flag = @"rc_af_shared_obj_flag";
 
 + (AFHTTPSessionManager *)rc_makeAFHTTPSessionManager{
 
-    AFSecurityPolicy *security = [AFSecurityPolicy defaultPolicy];//[AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-    security.validatesDomainName = NO;
-    security.allowInvalidCertificates = YES;
+//    AFSecurityPolicy *security = [AFSecurityPolicy defaultPolicy];//[AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+//    security.validatesDomainName = NO;
+//    security.allowInvalidCertificates = YES;
 
     AFHTTPSessionManager *manager__ = [AFHTTPSessionManager manager];
     manager__.requestSerializer = [AFJSONRequestSerializer serializer];
