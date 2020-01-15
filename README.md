@@ -103,7 +103,7 @@ RC_HTTPRequest *request = [RC_HTTPRequest rc_POSTRequestWithURL:url parameters:p
 ```
 ## 3. Parsing the response data
 ### 3.1 Global response data parser
-Register the global data parser before you use it. After that the data parser works for every http request, unless you specify the data parsing delegate for a certain http request (***view section 3.2***).
+Register the global data parser before you use it. After that the data parser works for every http request, unless you specify the data parsing delegate for a certain http request (***[view section 3.2](https://github.com/Hymn-RoyCHANG/RC_NetworkProxy#32-the-specified-data-parser)***).
 ```objc
 //// sample code
 [RC_NetworkProxy rc_registerResponseDataHandler:^RC_HTTPResponse * _Nonnull(id  _Nonnull data) {
